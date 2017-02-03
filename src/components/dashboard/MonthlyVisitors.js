@@ -1,14 +1,14 @@
 import React, {PropTypes} from 'react';
 import Paper from 'material-ui/Paper';
-import {white, pink600, pink500} from 'material-ui/styles/colors';
+import {white, pink200, pink500} from 'material-ui/styles/colors';
 import {BarChart, Bar, ResponsiveContainer, XAxis} from 'recharts';
 import GlobalStyles from '../../styles';
 
-const MonthlySales = (props) => {
+const MonthlyVisitors = (props) => {
 
   const styles = {
     paper: {
-      backgroundColor: pink600,
+      backgroundColor: pink200,
       height: 150
     },
     div: {
@@ -26,7 +26,7 @@ const MonthlySales = (props) => {
 
   return (
     <Paper style={styles.paper}>
-      <div style={{...GlobalStyles.title, ...styles.header}}>Monthly Sales</div>
+      <div style={{...GlobalStyles.title, ...styles.header}}>Monthly Visitors</div>
       <div style={styles.div}>
         <ResponsiveContainer>
           <BarChart data={props.data} >
@@ -39,8 +39,8 @@ const MonthlySales = (props) => {
   );
 };
 
-MonthlySales.propTypes = {
+MonthlyVisitors.propTypes = {
   data: PropTypes.array
 };
 
-export default MonthlySales;
+export default MonthlyVisitors;

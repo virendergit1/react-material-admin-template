@@ -8,18 +8,18 @@ import IconButton from 'material-ui/IconButton';
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 import IconMenu from 'material-ui/IconMenu';
 import MenuItem from 'material-ui/MenuItem';
-import {grey400, cyan600, white} from 'material-ui/styles/colors';
+import {grey400, white, orange600} from 'material-ui/styles/colors';
 import {typography} from 'material-ui/styles';
-import Wallpaper from 'material-ui/svg-icons/device/wallpaper';
+import {Link} from 'react-router';
 
-const RecentlyProducts = (props) => {
+const CommunityIncidents = (props) => {
 
   const styles = {
     subheader: {
       fontSize: 24,
       fontWeight: typography.fontWeightLight,
-      backgroundColor: cyan600,
-      color: white
+      backgroundColor: orange600,
+      color: white,
     }
   };
 
@@ -37,18 +37,24 @@ const RecentlyProducts = (props) => {
       <MenuItem>View</MenuItem>
     </IconMenu>
   );
+  
+  function form() {
+      alert('Hello');
+  }
 
   return (
     <Paper>
       <List>
-        <Subheader style={styles.subheader}>Recent Products</Subheader>
-        {props.data.map(item =>
-          <div key={item.title}>
+        <Subheader style={styles.subheader}><Link to="/table" style={styles.subheader}>Community Incidents</Link></Subheader>
+        {props.incidents.map(item =>
+          <div key={item.id}>
             <ListItem
-              leftAvatar={<Avatar icon={<Wallpaper />} />}
+              leftAvatar={<Avatar src={item.image} />}
               primaryText={item.title}
               secondaryText={item.text}
               rightIconButton={rightIconMenu}
+              onTouchTap={form}
+              secondaryTextLines={2}              
             />
             <Divider inset={true} />
           </div>
@@ -58,8 +64,8 @@ const RecentlyProducts = (props) => {
   );
 };
 
-RecentlyProducts.propTypes = {
-  data: PropTypes.array
+CommunityIncidents.propTypes = {
+  incidents: PropTypes.array
 };
 
-export default RecentlyProducts;
+export default CommunityIncidents;

@@ -10,7 +10,7 @@ import {grey400} from 'material-ui/styles/colors';
 import Divider from 'material-ui/Divider';
 import PageBase from '../components/PageBase';
 
-const FormPage = () => {
+const VisitForm = () => {
 
   const styles = {
     toggleDiv: {
@@ -80,4 +80,4 @@ const FormPage = () => {
   );
 };
 
-export default FormPage;
+export default VisitForm;

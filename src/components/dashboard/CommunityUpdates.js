@@ -8,18 +8,20 @@ import IconButton from 'material-ui/IconButton';
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 import IconMenu from 'material-ui/IconMenu';
 import MenuItem from 'material-ui/MenuItem';
-import {grey400, cyan600, white} from 'material-ui/styles/colors';
+import {grey400, cyan600, purple600, white} from 'material-ui/styles/colors';
 import {typography} from 'material-ui/styles';
 import Wallpaper from 'material-ui/svg-icons/device/wallpaper';
+import ActionInfo from 'material-ui/svg-icons/action/info';
+import {Link} from 'react-router';
 
-const RecentlyProducts = (props) => {
+const CommunityUpdates = (props) => {
 
   const styles = {
     subheader: {
       fontSize: 24,
       fontWeight: typography.fontWeightLight,
-      backgroundColor: cyan600,
-      color: white
+      backgroundColor: purple600,
+      color: white,
     }
   };
 
@@ -37,18 +39,24 @@ const RecentlyProducts = (props) => {
       <MenuItem>View</MenuItem>
     </IconMenu>
   );
+  
+  function form() {
+      alert('Hello');
+  }
 
   return (
     <Paper>
       <List>
-        <Subheader style={styles.subheader}>Recent Products</Subheader>
+        <Subheader style={styles.subheader}><Link to="/table" style={styles.subheader}>Community Updates</Link></Subheader>
         {props.data.map(item =>
-          <div key={item.title}>
+          <div key={item.id}>
             <ListItem
-              leftAvatar={<Avatar icon={<Wallpaper />} />}
+              leftAvatar={<Avatar src={item.image} />}
               primaryText={item.title}
               secondaryText={item.text}
               rightIconButton={rightIconMenu}
+              onTouchTap={form}
+              secondaryTextLines={2}              
             />
             <Divider inset={true} />
           </div>
@@ -58,8 +66,8 @@ const RecentlyProducts = (props) => {
   );
 };
 
-RecentlyProducts.propTypes = {
+CommunityUpdates.propTypes = {
   data: PropTypes.array
 };
 
-export default RecentlyProducts;
+export default CommunityUpdates;

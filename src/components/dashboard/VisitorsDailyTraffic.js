@@ -1,14 +1,15 @@
 import React, {PropTypes} from 'react';
 import Paper from 'material-ui/Paper';
-import {white, purple600, purple500} from 'material-ui/styles/colors';
-import {LineChart, Line, ResponsiveContainer} from 'recharts';
+import {white, purple600, purple200} from 'material-ui/styles/colors';
+import {LineChart, XAxis, Tooltip, Line, ResponsiveContainer} from 'recharts';
+            
 import {typography} from 'material-ui/styles';
 
-const NewOrders = (props) => {
+const VisitorsDailyTraffic = (props) => {
 
   const styles = {
     paper: {
-      backgroundColor: purple500,
+      backgroundColor: purple200,
       height: 150
     },
     div: {
@@ -26,11 +27,13 @@ const NewOrders = (props) => {
 
   return (
     <Paper style={styles.paper}>
-      <div style={{...styles.header}}>New Orders</div>
+      <div style={{...styles.header}}>Visitors Daily Traffic</div>
       <div style={styles.div}>
         <ResponsiveContainer >
-          <LineChart data={props.data}>
-            <Line type="monotone" dataKey="pv" stroke="#8884d8" strokeWidth={2} />
+          <LineChart data={props.data} width={900} height={300} margin={{top: 20, right: 30, left: 20, bottom: 10}}>
+            <XAxis dataKey="name"/>
+            <Tooltip />
+            <Line type="monotone" dataKey="Visitors" stroke="#8884d8" strokeWidth={2} />
           </LineChart>
         </ResponsiveContainer>
       </div>
@@ -38,8 +41,8 @@ const NewOrders = (props) => {
   );
 };
 
-NewOrders.propTypes = {
+VisitorsDailyTraffic.propTypes = {
   data: PropTypes.array
 };
 
-export default NewOrders;
+export default VisitorsDailyTraffic;

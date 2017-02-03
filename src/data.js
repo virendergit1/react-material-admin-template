@@ -1,6 +1,16 @@
 import React from 'react';
 import Assessment from 'material-ui/svg-icons/action/assessment';
 import GridOn from 'material-ui/svg-icons/image/grid-on';
+import ResidentsIcon from 'material-ui/svg-icons/social/group';
+import VisitorIcon from 'material-ui/svg-icons/maps/transfer-within-a-station';
+import IncidentIcon from 'material-ui/svg-icons/action/bug-report';
+import EventIcon from 'material-ui/svg-icons/action/event';
+import CommunityUpdatesIcon from 'material-ui/svg-icons/action/speaker-notes';
+import SearchEntityIcon from 'material-ui/svg-icons/action/zoom-in';
+import ComunityHomeIcon from 'material-ui/svg-icons/action/account-balance';
+import NewEntityIcon from 'material-ui/svg-icons/social/plus-one';
+import CommunityNewsIcon from 'material-ui/svg-icons/action/view-headline';
+import CommunityIcon from 'material-ui/svg-icons/social/location-city';
 import PermIdentity from 'material-ui/svg-icons/action/perm-identity';
 import Web from 'material-ui/svg-icons/av/web';
 import {cyan600, pink600, purple600} from 'material-ui/styles/colors';
@@ -10,10 +20,27 @@ import ChevronRight from 'material-ui/svg-icons/navigation/chevron-right';
 
 const data = {
   menus: [
-    { text: 'DashBoard', icon: <Assessment/>, link: '/dashboard' },
-    { text: 'Form Page', icon: <Web/>, link: '/form' },
-    { text: 'Table Page', icon: <GridOn/>, link: '/table' },
-    { text: 'Login Page', icon: <PermIdentity/>, link: '/login' }
+   { text: 'Community', icon: <CommunityIcon/>, link: '/community', 
+        submenus:[
+            {index:'0', text: 'Community Home', icon: <ComunityHomeIcon/>, link: '/community'},
+            {index:'1', text: 'New Community', icon: <NewEntityIcon/>, link: '/siteAdminHome/newcommunity'},
+            {index:'2', text: 'Search Community', icon: <SearchEntityIcon/>, link: '/siteAdminHome/searchcommunity'},
+            {index:'3', text: 'Community Events', icon: <EventIcon/>, link: '/siteAdminHome/communityevents'},
+            {index:'4', text: 'Community News', icon: <CommunityNewsIcon/>, link: '/communitynews'},
+            {index:'5', text: 'Community Updates', icon: <CommunityUpdatesIcon/>, link: '/communityupdates'},
+        ]},
+    { text: 'Residents', icon: <ResidentsIcon/>, link: '/residents', 
+        submenus:[{index:'0', text: 'Residents Directory', icon: <ResidentsIcon/>, link: '/residents'}]},
+    { text: 'Visitors', icon: <VisitorIcon/>, link: '/dashboard', 
+        submenus:[
+            {index:'0', text: 'Search Visitor', icon: <SearchEntityIcon/>, link: '/searchvisitor'},
+            {index:'1', text: 'New Visitor', icon: <NewEntityIcon/>, link: '/newvisit'},
+        ]},
+    { text: 'Incidents', icon: <IncidentIcon/>, link: '/table', 
+        submenus:[
+            {index:'0', text: 'Search Incident', icon: <SearchEntityIcon/>, link: '/searchinident'},
+            {index:'1', text: 'New Incident', icon: <NewEntityIcon/>, link: '/newincident'},
+        ]},
   ],
   tablePage: {
     items: [
@@ -29,10 +56,15 @@ const data = {
   },
   dashBoardPage: {
     recentProducts: [
-      {id: 1, title: 'Samsung TV', text: 'Samsung 32 1080p 60Hz LED Smart HDTV.'},
-      {id: 2, title: 'Playstation 4', text: 'PlayStation 3 500 GB System'},
-      {id: 3, title: 'Apple iPhone 6', text: 'Apple iPhone 6 Plus 16GB Factory Unlocked GSM 4G '},
-      {id: 4, title: 'Apple MacBook', text: 'Apple MacBook Pro MD101LL/A 13.3-Inch Laptop'}
+      {id: 1, image:'http://www.material-ui.com/images/uxceo-128.jpg', title: 'Lei Lee', text: '12/3/2017 8:20 AM, Visiting - Ram Manoher, 12 A Lantana St, Tower-1'},
+      {id: 2, image:'http://www.material-ui.com/images/kolage-128.jpg', title: 'Rajesh Garg', text: '12/3/2017 8:20 AM, Visiting - Ram Manoher, 12 A Lantana St, Tower-1'},
+      {id: 3, image:'http://www.material-ui.com/images/ok-128.jpg', title: 'Praveen Sharma', text: '12/3/2017 8:20 AM, Visiting - Ram Manoher, 12 A Lantana St, Tower-1'},
+      {id: 4, image:'http://www.material-ui.com/images/kerem-128.jpg', title: 'Shahrukh Khan', text: '12/3/2017 8:20 AM, Visiting - Ram Manoher, 12 A Lantana St, Tower-1'},
+      {id: 5, image:'http://www.material-ui.com/images/raquelromanp-128.jpg', title: 'Katrina Kaif', text: '12/3/2017 8:20 AM, Visiting - Ram Manoher, 12 A Lantana St, Tower-1'},
+    ],
+    communityUpdates: [
+      {id: 1, image:'http://www.material-ui.com/images/uxceo-128.jpg', title: 'Lei Lee', text: '12/3/2017 8:20 AM, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec mattis pretium massa. Aliquam erat volutpat. Nulla facilisi. Donec vulputate interdum sollicitudin. Nunc lacinia auctor quam sed pellentesque. Aliquam dui mauris, mattis quis lacus id, pellentesque lobortis odio.'},
+      {id: 2, image:'http://www.material-ui.com/images/kolage-128.jpg', title: 'Rajesh Garg', text: '12/3/2017 8:20 AM, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec mattis pretium massa. Aliquam erat volutpat. Nulla facilisi. Donec vulputate interdum sollicitudin. Nunc lacinia auctor quam sed pellentesque. Aliquam dui mauris, mattis quis lacus id, pellentesque lobortis odio.'},
     ],
     monthlySales: [
       {name: 'Jan', uv: 3700},
@@ -49,18 +81,35 @@ const data = {
       {name: 'Dec', uv: 2780}
     ],
     newOrders: [
-      {pv: 2400},
-      {pv: 1398},
-      {pv: 9800},
-      {pv: 3908},
-      {pv: 4800},
-      {pv: 3490},
-      {pv: 4300}
+      {name:"01:00 AM", Visitors: 9800},
+      {name:"02:00 AM", Visitors: 3908},
+      {name:"03:00 AM", Visitors: 4800},
+      {name:"04:00 AM", Visitors: 2400},
+      {name:"05:00 AM", Visitors: 1398},
+      {name:"06:00 AM", Visitors: 9800},
+      {name:"07:00 AM", Visitors: 3908},
+      {name:"08:00 AM", Visitors: 4800},
+      {name:"09:00 AM", Visitors: 3490},
+      {name:"10:00 AM", Visitors: 4300},
+      {name:"11:00 AM", Visitors: 2400},
+      {name:"12:00 AM", Visitors: 1398},
+      {name:"01:00 PM", Visitors: 9800},
+      {name:"02:00 PM", Visitors: 3908},
+      {name:"03:00 PM", Visitors: 4800},
+      {name:"04:00 PM", Visitors: 2400},
+      {name:"05:00 PM", Visitors: 1398},
+      {name:"06:00 PM", Visitors: 9800},
+      {name:"07:00 PM", Visitors: 3908},
+      {name:"08:00 PM", Visitors: 4800},
+      {name:"09:00 PM", Visitors: 3490},
+      {name:"10:00 PM", Visitors: 4300},
+      {name:"11:00 PM", Visitors: 2400},
+      {name:"12:00 PM", Visitors: 1398},
+      
     ],
     browserUsage: [
-      {name: 'Chrome', value: 800, color: cyan600, icon: <ExpandMore/>},
-      {name: 'Firefox', value: 300, color: pink600, icon: <ChevronRight/>},
-      {name: 'Safari', value: 300, color: purple600, icon: <ExpandLess/>}
+      {name: 'Personal', value: 800, color: cyan600},
+      {name: 'Professional', value: 300, color: pink600},
     ]
   }
 };

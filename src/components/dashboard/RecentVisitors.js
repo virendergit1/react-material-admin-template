@@ -12,7 +12,7 @@ import {grey400, cyan600, white} from 'material-ui/styles/colors';
 import {typography} from 'material-ui/styles';
 import Wallpaper from 'material-ui/svg-icons/device/wallpaper';
 
-const RecentlyProducts = (props) => {
+const RecentVisitors = (props) => {
 
   const styles = {
     subheader: {
@@ -37,18 +37,23 @@ const RecentlyProducts = (props) => {
       <MenuItem>View</MenuItem>
     </IconMenu>
   );
+  
+  function form() {
+      alert('Hello');
+  }
 
   return (
     <Paper>
       <List>
-        <Subheader style={styles.subheader}>Recent Products</Subheader>
+        <Subheader style={styles.subheader}>Recent Visitors</Subheader>
         {props.data.map(item =>
-          <div key={item.title}>
+          <div key={item.id}>
             <ListItem
-              leftAvatar={<Avatar icon={<Wallpaper />} />}
+              leftAvatar={<Avatar src={item.image} />}
               primaryText={item.title}
               secondaryText={item.text}
               rightIconButton={rightIconMenu}
+              onTouchTap={form}
             />
             <Divider inset={true} />
           </div>
@@ -58,8 +63,8 @@ const RecentlyProducts = (props) => {
   );
 };
 
-RecentlyProducts.propTypes = {
+RecentVisitors.propTypes = {
   data: PropTypes.array
 };
 
-export default RecentlyProducts;
+export default RecentVisitors;

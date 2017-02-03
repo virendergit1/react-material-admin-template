@@ -1,10 +1,14 @@
 import React,  { PropTypes } from 'react';
 import Drawer from 'material-ui/Drawer';
+import Divider from 'material-ui/Divider';
 import {spacing, typography} from 'material-ui/styles';
 import {white, blue600} from 'material-ui/styles/colors';
 import MenuItem from 'material-ui/MenuItem';
 import {Link} from 'react-router';
 import Avatar from 'material-ui/Avatar';
+import ArrowDropRight from 'material-ui/svg-icons/navigation-arrow-drop-right';
+import RaisedButton from 'material-ui/RaisedButton';
+import VisitorIcon from 'material-ui/svg-icons/maps/transfer-within-a-station';
 
 const LeftDrawer = (props) => {
   let { navDrawerOpen } = props;
@@ -12,13 +16,16 @@ const LeftDrawer = (props) => {
   const styles = {
     logo: {
       cursor: 'pointer',
-      fontSize: 22,
+      fontSize: 16,
       color: typography.textFullWhite,
       lineHeight: `${spacing.desktopKeylineIncrement}px`,
       fontWeight: typography.fontWeightLight,
       backgroundColor: blue600,
-      paddingLeft: 40,
+      paddingLeft: 30,
       height: 56,
+    },
+    button: {
+        margin: 25,
     },
     menuItem: {
       color: white,
@@ -26,9 +33,9 @@ const LeftDrawer = (props) => {
     },
     avatar: {
       div: {
-        padding: '15px 0 20px 15px',
-        backgroundImage:  'url(' + require('../images/material_bg.png') + ')',
-        height: 45
+        padding: '0px 0px 0px 5px',
+        margin: '0px 10px 25px',
+        height: 60
       },
       icon: {
         float: 'left',
@@ -45,31 +52,40 @@ const LeftDrawer = (props) => {
       }
     }
   };
-
+  
   return (
     <Drawer
       docked={true}
       open={navDrawerOpen}>
         <div style={styles.logo}>
-          Material Admin
+          MySecureComplex.com<Link to="/dashboard"/>
         </div>
         <div style={styles.avatar.div}>
-          <Avatar src="http://www.material-ui.com/images/uxceo-128.jpg"
-                  size={50}
-                  style={styles.avatar.icon}/>
-          <span style={styles.avatar.span}>{props.username}</span>
+          <RaisedButton label="New Visitor" labelPosition="before" secondary={true} icon={<VisitorIcon />} style={styles.button} containerElement={<Link to="/newvisit"/>}/>
         </div>
+        <Divider/>
         <div>
           {props.menus.map((menu, index) =>
-            <MenuItem
+          <MenuItem
               key={index}
               style={styles.menuItem}
               primaryText={menu.text}
               leftIcon={menu.icon}
-              containerElement={<Link to={menu.link}/>}
+              /*containerElement = {<Link to={menu.link}/>}*/
+              rightIcon={menu.submenus && <ArrowDropRight />}
+              menuItems={menu.submenus !== undefined &&
+                            menu.submenus.map((submenu) =>
+                            <MenuItem 
+                                key={submenu.index} 
+                                containerElement={<Link to={submenu.link}/>} 
+                                primaryText={submenu.text} 
+                                leftIcon={submenu.icon}
+                            />
+                            )                            
+                        }
             />
-          )}
-        </div>
+          )}          
+        </div> 
     </Drawer>
   );
 };
