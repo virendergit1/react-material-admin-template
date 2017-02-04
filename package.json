@@ -19,7 +19,9 @@
     "test:cover": "babel-node node_modules/isparta/bin/isparta cover --root src --report html node_modules/mocha/bin/_mocha -- --require ./tools/testSetup.js \"src/**/*.spec.js\" --reporter progress",
     "test:cover:travis": "babel-node node_modules/isparta/bin/isparta cover --root src --report lcovonly _mocha -- --require ./tools/testSetup.js \"src/**/*.spec.js\" && cat ./coverage/lcov.info | node_modules/coveralls/bin/coveralls.js",
     "test:watch": "npm run test -- --watch",
-    "open:cover": "npm run test:cover && open coverage/index.html"
+    "open:cover": "npm run test:cover && open coverage/index.html",
+    "build": "babel-node tools/build.js",
+    "start": "npm run open:dist"
   },
   "author": "Rafael Zeffa",
   "license": "MIT",
@@ -34,6 +36,7 @@
     "bootstrap": "3.3.7",
     "browser-sync": "2.14.0",
     "caniuse-db": "1.0.30000619",
+    "enzyme": "2.4.1",
     "eslint": "3.2.2",
     "eslint-watch": "2.1.14",
     "flexboxgrid": "6.3.1",
