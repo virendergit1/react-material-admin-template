@@ -32,6 +32,7 @@
     "babel-preset-stage-1": "6.5.0",
     "babel-register": "6.11.6",
     "bootstrap": "3.3.7",
+    "browser-sync": "2.14.0",
     "caniuse-db": "1.0.30000619",
     "eslint": "3.2.2",
     "eslint-watch": "2.1.14",
