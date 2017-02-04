@@ -27,6 +27,8 @@
     "babel-cli": "6.11.4",
     "bootstrap": "3.3.7",
     "caniuse-db": "1.0.30000619",
+    "eslint": "3.2.2",
+    "eslint-watch": "2.1.14",
     "flexboxgrid": "6.3.1",
     "font-awesome": "4.6.3",
     "history": "3.0.0",
