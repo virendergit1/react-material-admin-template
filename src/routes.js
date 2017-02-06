@@ -5,6 +5,9 @@ import NotFoundPage from './containers/NotFoundPage.js';
 import LoginPage from './containers/LoginPage';
 import FormPage from './containers/FormPage';
 import NewVisitFormPage from './containers/NewVisitFormPage';
+import ProfileFormPage from './containers/ProfileFormPage';
+import ManageVisitorFormPage from './containers/ManageVisitorFormPage';
+import VacationNotificationFormPage from './containers/VacationNotificationFormPage';
 import NewIncidentFormPage from './containers/NewIncidentFormPage';
 import CommunityHomePage from './containers/CommunityHomePage';
 import ResidentHomePage from './containers/ResidentHomePage';
@@ -31,7 +34,11 @@ export default (
        <Route path="siteAdminHome" component={SiteAdminHomePage}>
              <Route path="newcommunity" component={NewCommunityFormPage}/>
         </Route>     
-        <Route path="form" component={FormPage}/>
+      <Route path="profile" component={ProfileFormPage}/>
+      <Route path="manageVisitors" component={ManageVisitorFormPage}/>
+      <Route path="vacationNotification" component={VacationNotificationFormPage}/>
+
+      <Route path="form" component={FormPage}/>
       <Route path="table" component={TablePage}/>
       <Route path="*" component={NotFoundPage}/>
     </Route>

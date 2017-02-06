@@ -9,6 +9,10 @@ import ViewModule from 'material-ui/svg-icons/action/view-module';
 import {white} from 'material-ui/styles/colors';
 import SearchBox from './SearchBox';
 import PermIdentity from 'material-ui/svg-icons/action/perm-identity';
+import VacationOutIcon from 'material-ui/svg-icons/action/flight-takeoff';
+import VisitorManagementIcon from 'material-ui/svg-icons/action/assignment-ind';
+import MessageIcon from 'material-ui/svg-icons/communication/message';
+
 import {Link} from 'react-router';
 
 class Header extends React.Component {
@@ -52,9 +56,10 @@ class Header extends React.Component {
                             targetOrigin={{horizontal: 'right', vertical: 'top'}}
                             anchorOrigin={{horizontal: 'right', vertical: 'top'}}
                   >
-                    <MenuItem key={1} primaryText="Securiy Guard View"/>
-                    <MenuItem key={2} primaryText="Resident View"/>
-                    <MenuItem key={3} primaryText="Community Admin View"/>
+                    <MenuItem key={1} primaryText="Profile" leftIcon={<PermIdentity/>} containerElement = {<Link to="/profile"/>}/>
+                    <MenuItem key={2} primaryText="Messages" leftIcon={<MessageIcon/>} containerElement = {<Link to="/form"/>}/>
+                    <MenuItem key={3} primaryText="Vacation Notification" leftIcon={<VacationOutIcon/>} containerElement = {<Link to="/vacationNotification"/>}/>
+                    <MenuItem key={4} primaryText="Visitor Management" leftIcon={<VisitorManagementIcon/>} containerElement = {<Link to="/manageVisitors"/>}/>
                   </IconMenu>
                   <IconMenu color={white}
                             iconButtonElement={

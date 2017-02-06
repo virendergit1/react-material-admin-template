@@ -89,6 +89,9 @@ class NewVisitForm extends React.Component {
                 <div className="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-md">
                     <Field name="name" component={TextField} label="Visitor Name" hintText="e.g. Ram Bahadur" floatingLabelText="Visitor's Name" fullWidth={true}/>
                 </div>
+                <div className="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-md">
+                    <Field name="name" component={TextField} label="Age" hintText="e.g. 26" floatingLabelText="Visitor's Age" fullWidth={true}/>
+                </div>
             </div>
             <div className="row">
                 <div className="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-md">
@@ -118,12 +121,10 @@ class NewVisitForm extends React.Component {
             </div>
             <div className="row">
                 <div className="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-md">
-                    <p>Visit Date</p>
-                    <Field name="visitDate" component={DatePicker} hintText="Date of Visit" format={null} DateTimeFormat={DateTimeFormat} locale="en-GB" fullWidth={true}/>
+                    <Field name="visitDate" component={DatePicker} floatingLabelText="Date of Visit" hintText="Date of Visit" format={null} DateTimeFormat={DateTimeFormat} locale="en-GB" fullWidth={true}/>
                 </div>
                 <div className="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-md">
-                    <p>Visit Time</p>
-                    <Field name="visitTime" component={TimePicker} hintText="Time of Visit" format={null} fullWidth={true}/>
+                    <Field name="visitTime" component={TimePicker} floatingLabelText="Time of Visit" hintText="Time of Visit" format={null} fullWidth={true}/>
                 </div>
             </div>  
              <div className="row">

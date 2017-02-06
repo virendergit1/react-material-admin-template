@@ -6,12 +6,13 @@ import VisitorIcon from 'material-ui/svg-icons/maps/transfer-within-a-station';
 import IncidentIcon from 'material-ui/svg-icons/action/bug-report';
 import EventIcon from 'material-ui/svg-icons/action/event';
 import CommunityUpdatesIcon from 'material-ui/svg-icons/action/speaker-notes';
-import SearchEntityIcon from 'material-ui/svg-icons/action/zoom-in';
+import SearchEntityIcon from 'material-ui/svg-icons/action/search';
 import ComunityHomeIcon from 'material-ui/svg-icons/action/account-balance';
-import NewEntityIcon from 'material-ui/svg-icons/social/plus-one';
+import NewEntityIcon from 'material-ui/svg-icons/content/add-circle-outline';
 import CommunityNewsIcon from 'material-ui/svg-icons/action/view-headline';
 import CommunityIcon from 'material-ui/svg-icons/social/location-city';
 import PermIdentity from 'material-ui/svg-icons/action/perm-identity';
+import DomesticHelpIcon from 'material-ui/svg-icons/av/recent-actors';
 import Web from 'material-ui/svg-icons/av/web';
 import {cyan600, pink600, purple600} from 'material-ui/styles/colors';
 import ExpandLess from 'material-ui/svg-icons/navigation/expand-less';
@@ -40,6 +41,11 @@ const data = {
         submenus:[
             {index:'0', text: 'Search Incident', icon: <SearchEntityIcon/>, link: '/searchinident'},
             {index:'1', text: 'New Incident', icon: <NewEntityIcon/>, link: '/newincident'},
+        ]},
+    { text: 'Domestic Help', icon: <DomesticHelpIcon/>, link: '/table', 
+        submenus:[
+            {index:'0', text: 'Search Domestic Help', icon: <SearchEntityIcon/>, link: '/searchinident'},
+            {index:'1', text: 'Register Domestic Help', icon: <NewEntityIcon/>, link: '/newincident'},
         ]},
   ],
   tablePage: {
