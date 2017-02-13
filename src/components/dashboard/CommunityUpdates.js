@@ -14,25 +14,31 @@ import Wallpaper from 'material-ui/svg-icons/device/wallpaper';
 import ActionInfo from 'material-ui/svg-icons/action/info';
 import {Link} from 'react-router';
 
-const CommunityUpdates = (props) => {
+class CommunityUpdates extends React.Component {
 
+  constructor(props) {
+    super(props);
+  }
+
+  render(){
+  
   const styles = {
-    subheader: {
-      fontSize: 24,
-      fontWeight: typography.fontWeightLight,
-      backgroundColor: purple600,
-      color: white,
-    }
-  };
+      subheader: {
+        fontSize: 24,
+        fontWeight: typography.fontWeightLight,
+        backgroundColor: purple600,
+        color: white,
+      }
+    };
 
-  const iconButtonElement = (
-    <IconButton
-      touch={true}
-      tooltipPosition="bottom-left"
-    >
-      <MoreVertIcon color={grey400} />
-    </IconButton>
-  );
+    const iconButtonElement = (
+      <IconButton
+        touch={true}
+        tooltipPosition="bottom-left"
+      >
+        <MoreVertIcon color={grey400} />
+      </IconButton>
+    );
 
   const rightIconMenu = (
     <IconMenu iconButtonElement={iconButtonElement}>
@@ -48,7 +54,7 @@ const CommunityUpdates = (props) => {
     <Paper>
       <List>
         <Subheader style={styles.subheader}><Link to="/table" style={styles.subheader}>Community Updates</Link></Subheader>
-        {props.data.map(item =>
+        {this.props.data.map(item =>
           <div key={item.id}>
             <ListItem
               leftAvatar={<Avatar src={item.image} />}
@@ -64,7 +70,8 @@ const CommunityUpdates = (props) => {
       </List>
     </Paper>
   );
-};
+}
+}
 
 CommunityUpdates.propTypes = {
   data: PropTypes.array
