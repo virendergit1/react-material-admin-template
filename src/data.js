@@ -14,14 +14,14 @@ import CommunityIcon from 'material-ui/svg-icons/social/location-city';
 import PermIdentity from 'material-ui/svg-icons/action/perm-identity';
 import DomesticHelpIcon from 'material-ui/svg-icons/av/recent-actors';
 import Web from 'material-ui/svg-icons/av/web';
-import {cyan600, pink600, purple600} from 'material-ui/styles/colors';
+import {white, cyan600, pink600, purple600} from 'material-ui/styles/colors';
 import ExpandLess from 'material-ui/svg-icons/navigation/expand-less';
 import ExpandMore from 'material-ui/svg-icons/navigation/expand-more';
 import ChevronRight from 'material-ui/svg-icons/navigation/chevron-right';
 
 const data = {
   menus: [
-   { text: 'Community', icon: <CommunityIcon/>, link: '/community', 
+   { text: 'Community', icon: <CommunityIcon color={white}/>, link: '/community', 
         submenus:[
             {index:'0', text: 'Community Home', icon: <ComunityHomeIcon/>, link: '/community'},
             {index:'1', text: 'New Community', icon: <NewEntityIcon/>, link: '/siteAdminHome/newcommunity'},
@@ -30,19 +30,19 @@ const data = {
             {index:'4', text: 'Community News', icon: <CommunityNewsIcon/>, link: '/communitynews'},
             {index:'5', text: 'Community Updates', icon: <CommunityUpdatesIcon/>, link: '/communityupdates'},
         ]},
-    { text: 'Residents', icon: <ResidentsIcon/>, link: '/residents', 
+    { text: 'Residents', icon: <ResidentsIcon color={white}/>, link: '/residents', 
         submenus:[{index:'0', text: 'Residents Directory', icon: <ResidentsIcon/>, link: '/residents'}]},
-    { text: 'Visitors', icon: <VisitorIcon/>, link: '/dashboard', 
+    { text: 'Visitors', icon: <VisitorIcon color={white}/>, link: '/dashboard', 
         submenus:[
             {index:'0', text: 'Search Visitor', icon: <SearchEntityIcon/>, link: '/searchvisitor'},
             {index:'1', text: 'New Visitor', icon: <NewEntityIcon/>, link: '/newvisit'},
         ]},
-    { text: 'Incidents', icon: <IncidentIcon/>, link: '/table', 
+    { text: 'Incidents', icon: <IncidentIcon color={white}/>, link: '/table', 
         submenus:[
             {index:'0', text: 'Search Incident', icon: <SearchEntityIcon/>, link: '/searchinident'},
             {index:'1', text: 'New Incident', icon: <NewEntityIcon/>, link: '/newincident'},
         ]},
-    { text: 'Domestic Help', icon: <DomesticHelpIcon/>, link: '/table', 
+    { text: 'Domestic Help', icon: <DomesticHelpIcon color={white}/>, link: '/table', 
         submenus:[
             {index:'0', text: 'Search Domestic Help', icon: <SearchEntityIcon/>, link: '/searchinident'},
             {index:'1', text: 'Register Domestic Help', icon: <NewEntityIcon/>, link: '/newincident'},

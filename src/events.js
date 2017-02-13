@@ -3,7 +3,8 @@ export default [
     'title': 'Guru Govind Singh Ji Birthday',
     'allDay': true,
     'start': new Date(2015, 3, 0),
-    'end': new Date(2015, 3, 1)
+    'end': new Date(2015, 3, 1),
+     desc: 'Big conference for important people'
   },
   {
     'title': 'Diwali Mela 2017',
