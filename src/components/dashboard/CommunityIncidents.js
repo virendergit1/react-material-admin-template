@@ -12,8 +12,13 @@ import {grey400, white, orange600} from 'material-ui/styles/colors';
 import {typography} from 'material-ui/styles';
 import {Link} from 'react-router';
 
-const CommunityIncidents = (props) => {
+class CommunityIncidents extends React.Component {
 
+constructor(props) {
+    super(props);
+  }
+
+  render(){
   const styles = {
     subheader: {
       fontSize: 24,
@@ -37,7 +42,7 @@ const CommunityIncidents = (props) => {
       <MenuItem>View</MenuItem>
     </IconMenu>
   );
-  
+
   function form() {
       alert('Hello');
   }
@@ -46,7 +51,7 @@ const CommunityIncidents = (props) => {
     <Paper>
       <List>
         <Subheader style={styles.subheader}><Link to="/table" style={styles.subheader}>Community Incidents</Link></Subheader>
-        {props.incidents.map(item =>
+        {this.props.incidents.map(item =>
           <div key={item.id}>
             <ListItem
               leftAvatar={<Avatar src={item.image} />}
@@ -54,7 +59,7 @@ const CommunityIncidents = (props) => {
               secondaryText={item.text}
               rightIconButton={rightIconMenu}
               onTouchTap={form}
-              secondaryTextLines={2}              
+              secondaryTextLines={2}
             />
             <Divider inset={true} />
           </div>
@@ -62,7 +67,8 @@ const CommunityIncidents = (props) => {
       </List>
     </Paper>
   );
-};
+}
+}
 
 CommunityIncidents.propTypes = {
   incidents: PropTypes.array

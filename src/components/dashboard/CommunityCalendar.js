@@ -7,6 +7,10 @@ import {typography} from 'material-ui/styles';
 
 class CommunityCalendar extends React.Component {
 
+  constructor(props) {
+    super(props);
+  }
+
   render(){
     const { events } = this.props;
     // Setup the localizer by providing the moment Object to the correct localizer.
@@ -20,7 +24,7 @@ class CommunityCalendar extends React.Component {
         div: {
           height: 500,
           padding: '15px 15px 15px 15px',
-          texttransform: 'capitalize'
+          texttransform: 'capitalize',
         },
         header: {
           fontSize: 24,
@@ -29,17 +33,17 @@ class CommunityCalendar extends React.Component {
           backgroundColor: green600,
           padding: 10,
         }
-    };  
-    
+    };
+
     return (
-        <Paper style={styles.paper}>        
+        <Paper style={styles.paper}>
             <div style={{...styles.header}}>Community Calendar</div>
             <div style={styles.div}>
                   <BigCalendar
                     selectable
                     toolbar={true}
                     culture={'en-GB'}
-                    views={['month', 'week', 'day']}
+                    views={['month', 'week', 'day', 'agenda']}
                     formats={formats}
                     events={events}
                     scrollToTime={new Date(1970, 1, 1, 6)}
@@ -51,7 +55,7 @@ class CommunityCalendar extends React.Component {
                     )}
                   />
             </div>
-      </Paper>        
+      </Paper>
     );
   }
 }
