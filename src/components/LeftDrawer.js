@@ -2,7 +2,7 @@ import React,  { PropTypes } from 'react';
 import Drawer from 'material-ui/Drawer';
 import Divider from 'material-ui/Divider';
 import {spacing, typography} from 'material-ui/styles';
-import {white, blue600} from 'material-ui/styles/colors';
+import {white, blue600, pink900, cyan600, green600, red500} from 'material-ui/styles/colors';
 import MenuItem from 'material-ui/MenuItem';
 import {Link} from 'react-router';
 import Avatar from 'material-ui/Avatar';
@@ -19,10 +19,11 @@ const LeftDrawer = (props) => {
       fontSize: 16,
       color: typography.textFullWhite,
       lineHeight: `${spacing.desktopKeylineIncrement}px`,
-      fontWeight: typography.fontWeightLight,
+      fontWeight: typography.fontWeightHeavy,
       backgroundColor: blue600,
-      paddingLeft: 30,
+      paddingLeft: 12,
       height: 56,
+      textDecoration: 'none',
     },
     button: {
         margin: 25,
@@ -52,13 +53,13 @@ const LeftDrawer = (props) => {
       }
     }
   };
-  
+
   return (
     <Drawer
       docked={true}
       open={navDrawerOpen}>
         <div style={styles.logo}>
-          MySecureComplex.com<Link to="/dashboard"/>
+          <Link to="/dashboard" style={styles.logo}>MySecureComplex.com </Link>
         </div>
         <div style={styles.avatar.div}>
           <RaisedButton label="New Visitor" labelPosition="before" secondary={true} icon={<VisitorIcon />} style={styles.button} containerElement={<Link to="/newvisit"/>}/>
@@ -72,22 +73,21 @@ const LeftDrawer = (props) => {
               primaryText={menu.text}
               leftIcon={menu.icon}
               /*containerElement = {<Link to={menu.link}/>}*/
-              rightIcon={menu.submenus && <ArrowDropRight />}
+              rightIcon={menu.submenus && <ArrowDropRight color={white}/>}
               menuItems={menu.submenus !== undefined &&
                             menu.submenus.map((submenu) =>
-                            <MenuItem 
-                                key={submenu.index} 
-                                containerElement={<Link to={submenu.link}/>} 
-                                primaryText={submenu.text} 
+                            <MenuItem
+                                key={submenu.index}
+                                containerElement={<Link to={submenu.link}/>}
+                                primaryText={submenu.text}
                                 leftIcon={submenu.icon}
                             />
-                            )                            
+                            )
                         }
             />
-          )}          
-        </div> 
-    </Drawer>
-  );
+          )}
+        </div>
+    </Drawer>);
 };
 
 LeftDrawer.propTypes = {
